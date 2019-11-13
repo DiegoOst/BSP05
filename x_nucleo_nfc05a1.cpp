@@ -168,8 +168,10 @@ void demoCycle(SPI* mspiChannel, ST25R3911* mST25, DigitalIn * uButton, DigitalO
 {
   bool found = false;
 
+  /* Code below is commented since not implemented. It may be of interest to uncommented if going through the wake up mode */
+
   /* Check if USER button is pressed */
-  //if( uButton -> read() == 1 )
+//  if( uButton -> read() == 1 )
   //{
 
 			//doWakeUp = 1;
@@ -232,17 +234,9 @@ void demoCycle(SPI* mspiChannel, ST25R3911* mST25, DigitalIn * uButton, DigitalO
       //
     case DEMO_ST_WAIT_WAKEUP:
 
-    	if(wakeupFlag == 1)
-    	{
-
-    		// st25r3911Isr(mspiChannel, mST25, gpio_cs, IRQ, fieldLED_01, fieldLED_02, fieldLED_03, fieldLED_04, fieldLED_05, fieldLED_06 ) ;
-    			wakeupFlag = 0;
-
-    	}
 
 
 
-// 2 -> i move tag closer and 3 for 0x17 -> wake up!
 		 st25r3911Isr(mspiChannel, mST25, gpio_cs, IRQ, fieldLED_01, fieldLED_02, fieldLED_03, fieldLED_04, fieldLED_05, fieldLED_06 ) ;
 
 
